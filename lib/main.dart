@@ -1,50 +1,11 @@
-import 'package:flutter/material.dart';
-import 'package:libgit2dart/libgit2dart.dart';
+import 'package:color_git/app/presentation/main_app.dart';
+import 'package:color_git/app/presentation/main_app_runner.dart';
 
-void main() {
-  runApp(const MyApp());
-}
+Future<void> main() async {
+  const env = String.fromEnvironment('env', defaultValue: 'dev');
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  final MainAppRunner runner = MainAppRunner(env);
+  const MainApp app = MainApp();
 
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: const Home(),
-    );
-  }
-}
-
-class Home extends StatelessWidget {
-  const Home({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: TextButton(
-        child: const Text('test'),
-        onPressed: () {
-          print(Libgit2.version);
-          //final repo = Repository.open('D:Repo/friflex/bristol_mobile');
-          // log('test');
-          // final String? directoryPath = await getDirectoryPath();
-          // if (directoryPath != null) {
-          //   log(directoryPath.toString());
-          //   try {
-          //     print(repo.branches);
-          //   } catch (e) {
-          //     log(e.toString());
-          //   }
-          // }
-        },
-      ),
-    );
-  }
+  runner.run(app);
 }

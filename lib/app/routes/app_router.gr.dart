@@ -17,21 +17,47 @@ class _$AppRouter extends RootStackRouter {
 
   @override
   final Map<String, PageFactory> pagesMap = {
+    HomeRoute.name: (routeData) {
+      return AdaptivePage<dynamic>(
+        routeData: routeData,
+        child: const HomePage(),
+      );
+    },
     SettingsRoute.name: (routeData) {
       return AdaptivePage<dynamic>(
         routeData: routeData,
         child: const SettingsPage(),
       );
-    }
+    },
   };
 
   @override
   List<RouteConfig> get routes => [
         RouteConfig(
-          SettingsRoute.name,
+          HomeRoute.name,
           path: '/',
+          children: [
+            RouteConfig(
+              SettingsRoute.name,
+              path: 'settings',
+              parent: HomeRoute.name,
+            )
+          ],
         )
       ];
+}
+
+/// generated route for
+/// [HomePage]
+class HomeRoute extends PageRouteInfo<void> {
+  const HomeRoute({List<PageRouteInfo>? children})
+      : super(
+          HomeRoute.name,
+          path: '/',
+          initialChildren: children,
+        );
+
+  static const String name = 'HomeRoute';
 }
 
 /// generated route for
@@ -40,7 +66,7 @@ class SettingsRoute extends PageRouteInfo<void> {
   const SettingsRoute()
       : super(
           SettingsRoute.name,
-          path: '/',
+          path: 'settings',
         );
 
   static const String name = 'SettingsRoute';

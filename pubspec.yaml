@@ -12,30 +12,35 @@ dependencies:
   flutter:
     sdk: flutter
 
+  color_ui:
+    git:
+      url: https://github.com/color-hub/color_ui.git
+      ref: 3.0.0
+
   # Model
   freezed: ^2.1.0+1
-  freezed_annotation: 2.1.0
+  freezed_annotation: ^2.1.0
 
   # Bloc
   flutter_bloc: ^8.1.1
   hydrated_bloc: ^9.0.0
 
   # Routing
-  auto_route: ^5.0.1
+  auto_route: ^5.0.4
 
   # Git
-  libgit2dart: ^1.2.0
+  libgit2dart: ^1.2.1
 
   # Di
   injectable: ^1.5.3
   get_it: ^7.2.0
-  
-  # Utils  
-  provider: ^6.0.3
-  file_selector: ^0.8.4+3
+
+  # Utils
+  provider: ^6.0.5
+  file_selector: ^0.9.2+2
 
   # UI
-  fluent_ui: ^4.0.3+1
+  fluent_ui: ^4.2.0
 
 dev_dependencies:
   flutter_test:

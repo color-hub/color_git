@@ -8,10 +8,16 @@
 
 #include <file_selector_windows/file_selector_windows.h>
 #include <libgit2dart/libgit2dart_plugin.h>
+#include <local_auth_windows/local_auth_plugin.h>
+#include <permission_handler_windows/permission_handler_windows_plugin.h>
 
 void RegisterPlugins(flutter::PluginRegistry* registry) {
   FileSelectorWindowsRegisterWithRegistrar(
       registry->GetRegistrarForPlugin("FileSelectorWindows"));
   Libgit2dartPluginRegisterWithRegistrar(
       registry->GetRegistrarForPlugin("Libgit2dartPlugin"));
+  LocalAuthPluginRegisterWithRegistrar(
+      registry->GetRegistrarForPlugin("LocalAuthPlugin"));
+  PermissionHandlerWindowsPluginRegisterWithRegistrar(
+      registry->GetRegistrarForPlugin("PermissionHandlerWindowsPlugin"));
 }
